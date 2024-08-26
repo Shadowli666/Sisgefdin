@@ -1358,16 +1358,16 @@ function crearHema(e){
         data: {
      
             idcita:e.target.idcita.value,
-            hemoglobina:e.target.hemoglobina.value,
-            hematocritos:e.target.hematocritos.value,
+            hemoglobina:e.target.hemoglobina.value || 0,
+            hematocritos:e.target.hematocritos.value || 0,
             cuentas_blancas:e.target.cuentas_blancas.value || 0,
             plaquetas:e.target.plaquetas.value || 0,
-            vsg:e.target.vsg.value,
+            vsg:e.target.vsg.value || 0,
             crearHema:true
         },
         success: function (response) {
             if (response == 'registrado') {
-                $('#idcita').val('');
+                //$('#idcita').val('');
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $("#cuentas_blancas").val('');
@@ -1382,7 +1382,7 @@ function crearHema(e){
                     timer: 2000
                 })
             } else {
-                $('#idcita').val('');
+                //$('#idcita').val('');
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $('#cuentas_blancas').val('')

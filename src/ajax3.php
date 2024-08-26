@@ -849,11 +849,11 @@ if (isset($_POST['regDetalle'])) {
     echo json_encode($msg);
     die();
 } else if(isset($_POST['crearHema'])){
-    $hemoglobina = isset($_POST['hemoglobina']) ? $_POST['hemoglobina'] :'0';
-    $hematocritos = isset($_POST['hematocritos'])? $_POST['hematocritos']: '0';
-    $cuentas_blancas = isset($_POST['cuentas_blancas'])? $_POST['cuentas_blancas']: '0';
-    $plaquetas = isset($_POST['plaquetas']) ? $_POST['plaquetas']: '0';
-    $vsg = isset($_POST['vsg']) ? $_POST['vsg'] : '0';
+    $hemoglobina = isset($_POST['hemoglobina']) ? $_POST['hemoglobina'] : "0";
+    $hematocritos = isset($_POST['hematocritos'])? $_POST['hematocritos']: "0";
+    $cuentas_blancas = isset($_POST['cuentas_blancas'])? $_POST['cuentas_blancas']: "0";
+    $plaquetas = isset($_POST['plaquetas']) ? $_POST['plaquetas']: "0";
+    $vsg = isset($_POST['vsg']) ? $_POST['vsg'] : "Vacio    ";
     $id_user = $_SESSION['idUser'];
     $idcita = $_POST['idcita'];
     $query = mysqli_query($conexion, "INSERT INTO detalle_hematologia(id_usuario, hemoglobina, hematocritos, cuentas_blancas, plaquetas, vsg, idcita) VALUES ($id_user, $hemoglobina, $hematocritos,$cuentas_blancas, $plaquetas, $vsg, $idcita)");
