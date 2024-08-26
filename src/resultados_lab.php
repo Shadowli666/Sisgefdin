@@ -52,7 +52,7 @@ include_once "includes/header.php";
                 "data": null,
                 "targets": -1,
                 "render": (a, b, row, d) => {
-                    return `<a href="pdf/documento.php?cl=${row[1]}&v=${row[0]}" target="_blank" class="btn btn-success"><i class="fas fa-file-pdf"></i></a>`;
+                    return `<a href="pdf/resultado.php?cl=${row[1]}&v=${row[0]}" target="_blank" class="btn btn-success"><i class="fas fa-file-pdf"></i></a>`;
                 }
             }]
         });

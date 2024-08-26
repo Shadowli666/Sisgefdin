@@ -99,7 +99,7 @@ include_once "includes/header.php";
                     </thead>
                     <tbody>
                         <?php
-						 $conexion=mysqli_connect("localhost","root","","farmacia"); 
+						 $conexion=mysqli_connect("localhost","farmacia_test","","farmacia"); 
 
                                 if(isset($_GET['from_date']) && isset($_GET['to_date']) && isset($_GET['especialista']))
                                 {
