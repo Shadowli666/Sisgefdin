@@ -438,9 +438,9 @@ if (isset($_GET['q'])) {
 
 } else if (isset($_GET['procesarVenta'])) {
     $id_cliente = $_GET['id'];
+    $idcita = $_GET['idcita'];
     $id_user = $_SESSION['idUser'];
     $response = array(); // Array para almacenar la respuesta
-
     $consulta = mysqli_query($conexion, "SELECT total, SUM(total) AS total_pagar FROM detalle_temp WHERE id_usuario = $id_user");
     $result = mysqli_fetch_assoc($consulta);
     $total = $result['total_pagar'];
@@ -452,7 +452,7 @@ if (isset($_GET['q'])) {
         $id_maximo = mysqli_query($conexion, "SELECT MAX(id) AS id_venta FROM examenes");
         $resultId = mysqli_fetch_assoc($id_maximo);
         $ultimoId = $resultId['id_venta'];
-    $consultaDetalle_hema = mysqli_query($conexion, "SELECT * FROM detalle_hematologia WHERE id_usuario = $id_user");
+    $consultaDetalle_hema = mysqli_query($conexion, "SELECT * FROM detalle_hematologia WHERE idcita = $idcita");
     if (!$consultaDetalle_hema){
         echo mysqli_error($conexion);
         return; 
@@ -464,13 +464,14 @@ if (isset($_GET['q'])) {
         $cuentas_blancas = floatval($row['cuentas_blancas']);
         $plaquetas = floatval($row['plaquetas']);
         $vsg = $row['vsg'];
+        $idcita = $row['idcita'];
         $insertarHema = mysqli_query($conexion, "INSERT INTO hematologia(id_usuario, id_cliente, id_venta, hemoglobina, hematocritos, cuentas_blancas, plaquetas, vsg ) VALUES ('$id_usuario', '$id_cliente', $ultimoId, '$hemoglobina', '$hematocritos', '$cuentas_blancas', '$plaquetas', '$vsg')");
         if(!$insertarHema){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarHema){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_hematologia WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_hematologia WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
@@ -479,12 +480,13 @@ if (isset($_GET['q'])) {
         
         
     }
-    $consultaDetalle_leuco = mysqli_query($conexion, "SELECT * FROM detalle_leuco WHERE id_usuario = $id_user");
+    $consultaDetalle_leuco = mysqli_query($conexion, "SELECT * FROM detalle_leuco WHERE idcita = $idcita");
     if (!$consultaDetalle_leuco){
         echo mysqli_error($conexion);
         return; 
     }
     while ($row = mysqli_fetch_assoc($consultaDetalle_leuco)) {
+        $idcita = $row["idcita"];
         $id_usuario = $row['id_usuario'];
         $seg = $row['seg'];
         $linf = $row['linf'];
@@ -499,7 +501,7 @@ if (isset($_GET['q'])) {
             return;  
         }
         if ($insertarLeuco){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_leuco WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_leuco WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);

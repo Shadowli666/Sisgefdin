@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#btn_generar').click(function (e) {
         e.preventDefault();
         var rows = $('#tblDetalle tr').length;
-        
+        const idcita = getIdCita()
         if (rows > 2) {
             var action = 'procesarVenta';
             var id = $('#idcliente').val();
@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 async: true,
                 data: {
                     procesarVenta: action,
-                    id: id
+                    id: id,
+                    idcita: idcita
                 },
                 success: function (response) {
                     
@@ -207,6 +208,9 @@ function listar() {
         });
     }
     
+    /**
+     * Funcion para obtener el id de una cita   
+     */
     function getIdCita(){
         // Crear una instancia de URLSearchParams con los parámetros de la URL actual
         const urlParams = new URLSearchParams(window.location.search);
