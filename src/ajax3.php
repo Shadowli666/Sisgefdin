@@ -888,6 +888,7 @@ if (isset($_POST['regDetalle'])) {
     die();
 } else if(isset($_POST['crearQuimi'])){
     $id = $_POST['id'];
+    $idcita = $_POST['idcita'];
     $examen = $_POST['examen'];
     $valor_unidad = $_POST['valor_unidad'];
     $valor_referencial1 = $_POST['valor_referencial1'];
@@ -909,21 +910,20 @@ if (isset($_POST['regDetalle'])) {
     }
     
     $id_examen = $row_examen['id'];
-
-    $verificar = mysqli_query($conexion, "SELECT id FROM detalle_quimica WHERE id_examen = '$id_examen' AND id_usuario = '$id_user'");
+    $verificar = mysqli_query($conexion, "SELECT id FROM detalle_quimica WHERE id_examen = '$id_examen' AND id_usuario = '$id_user' AND idcita = '$idcita'");
     $result = mysqli_num_rows($verificar);
 
     if ($result > 0) {
         // Update existing record
-        $query = mysqli_query($conexion, "UPDATE detalle_quimica SET valor_unidad = '$valor_unidad' WHERE id_examen = '$id' AND id_usuario = '$id_user'");
+        $query = mysqli_query($conexion, "UPDATE detalle_quimica SET valor_unidad = '$valor_unidad' WHERE id_examen = '$id_examen' AND id_usuario = '$id_user' AND idcita = '$idcita'");
         if ($query) {
-            $msg = "actualizado";
+            $msg = "Datos actualizados";
         } else {
             $msg = "Error al actualizar: " . mysqli_error($conexion);
         }
     } else {
         // Insert new record
-        $query = mysqli_query($conexion, "INSERT INTO detalle_quimica (id_usuario, id_examen, valor_unidad, valor_referencial1, valor_referencial2) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial1', '$valor_referencial2')"); 
+        $query = mysqli_query($conexion, "INSERT INTO detalle_quimica (id_usuario, id_examen, valor_unidad, valor_referencial1, valor_referencial2, idcita) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial1', '$valor_referencial2','$idcita')"); 
         if ($query) {
             $msg = "registrado";
         } else {
@@ -1033,9 +1033,9 @@ if (isset($_POST['regDetalle'])) {
         $tpt = $_POST['tpt'];
         $inr = $_POST['inr'];
         $fibrinogeno = $_POST['fibrinogeno'];
+        $idcita = $_POST['idcita'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_tiempos(id_usuario, tp, tpt, inr, fibrinogeno) VALUES ($id_user,  '$tp', '$tpt', '$inr', '$fibrinogeno')");
-         
+        $query = mysqli_query($conexion, "INSERT INTO detalle_tiempos(id_usuario, tp, tpt, inr, fibrinogeno,idcita) VALUES ($id_user,  '$tp', '$tpt', '$inr', '$fibrinogeno','$idcita')");
         if ($query) {
             $msg = "registrado";
         } else {

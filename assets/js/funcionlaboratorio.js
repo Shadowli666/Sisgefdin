@@ -1425,6 +1425,7 @@ function crearQuimi(e){
         dataType: "json",
         data: {
             id:e.target.id.value,
+            idcita: e.target.idcita.value,
             examen:e.target.examen.value,
             valor_unidad:e.target.valor_unidad.value,
             valor_referencial1:e.target.valor_referencial1.value || 0,
@@ -1453,7 +1454,7 @@ function crearQuimi(e){
                 listarQuimi();
                 Swal.fire({
                     position: 'top-end',
-                    icon: 'error',
+                    icon: 'success',
                     title: response,
                     showConfirmButton: false,
                     timer: 2000
@@ -1739,12 +1740,14 @@ function crearReticulocitos(e){
     });
 }
 function crearTiempos(e){
+    //Existen 4 formularios de crearTiempos en AJAX3.php. Toca refactorizar!! 
     e.preventDefault();
     $.ajax({
         url: "ajax3.php",
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             tp:e.target.tp.value,
             tpt:e.target.tpt.value,
             inr:e.target.inr.value,
