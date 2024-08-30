@@ -138,12 +138,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (rows > 0) {
             var action = 'procesarVenta';
             var id = $('#idcliente').val();
-            
+            const idcita = getIdCita()
             $.ajax({
                 url: 'ajax3.php',
                 async: true,
                 data: {
                     procesarVenta: action,
+                    idcita: idcita,
                     id: id
                 },
                 success: function (response) {
@@ -224,6 +225,20 @@ document.addEventListener("DOMContentLoaded", function () {
         listarGrupo();
     }
 });
+/**
+     * Funcion para obtener el id de una cita   
+     * TODO: Ya implementada en calculo.js linea 211
+     */
+function getIdCita(){
+    // Crear una instancia de URLSearchParams con los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
+    // Obtener el ID de la cita actual a travez de la url o un input hidden de
+    //formulario_lab
+    const citaActual = document.querySelector("#idcita").value ?
+    document.querySelector("#idcita").value :
+    urlParams.get('idcita');
+    return citaActual;
+}
 
 function calcularPrecio(e) {
     e.preventDefault();
@@ -758,11 +773,13 @@ function deleteDetalle(id) {
     });
 }
 function deleteHema(id) {
+    const idcita = getIdCita();
     $.ajax({
         url: "ajax3.php",
         data: {
             id: id,
-            delete_hema: true
+            delete_hema: true,
+            idcita: idcita,
         },
         success: function (response) {
 
@@ -1356,19 +1373,30 @@ function crearHema(e){
         type: 'POST',
         dataType: "json",
         data: {
+<<<<<<< HEAD
             
             idcita:e.target.idcita.value,
             hemoglobina:e.target.hemoglobina.value,
             hematocritos:e.target.hematocritos.value,
+=======
+     
+            idcita:e.target.idcita.value,
+            hemoglobina:e.target.hemoglobina.value || 0,
+            hematocritos:e.target.hematocritos.value || 0,
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
             cuentas_blancas:e.target.cuentas_blancas.value || 0,
             plaquetas:e.target.plaquetas.value || 0,
-            vsg:e.target.vsg.value,
+            vsg:e.target.vsg.value || 0,
             crearHema:true
         },
         success: function (response) {
             if (response == 'registrado') {
+<<<<<<< HEAD
                
                 $('#idcita').val('');
+=======
+                //$('#idcita').val('');
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $("#cuentas_blancas").val('');
@@ -1383,7 +1411,11 @@ function crearHema(e){
                     timer: 2000
                 })
             } else {
+<<<<<<< HEAD
                 $('#idcita').val('');
+=======
+                //$('#idcita').val('');
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $('#cuentas_blancas').val('')

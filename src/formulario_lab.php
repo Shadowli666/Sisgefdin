@@ -129,7 +129,11 @@ foreach ($query as $servicios) {
                 <form onsubmit="crearHema(event)">
                     <div class="card-body">
                         <div class="row">
+<<<<<<< HEAD
                             <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
+=======
+                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
                             <div class="col-lg-4">
                                 <div class="form-group">
                                 <input type="hidden" id="idcliente" value="<?php echo $id_cliente; ?>" name="idcliente" required>
