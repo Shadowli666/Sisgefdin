@@ -139,13 +139,22 @@ document.addEventListener("DOMContentLoaded", function () {
             var action = 'procesarVenta';
             var id = $('#idcliente').val();
             const idcita = getIdCita()
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
             $.ajax({
                 url: 'ajax3.php',
                 async: true,
                 data: {
                     procesarVenta: action,
+<<<<<<< Updated upstream
                     idcita: idcita,
                     id: id
+=======
+                    id: id,
+                    idcita: idcita
+>>>>>>> Stashed changes
                 },
                 success: function (response) {
                     console.log(response);
@@ -378,13 +387,16 @@ function listarLeuco() {
     });
 }
 function listarQuimi() {
+    const citaActual = getIdCita()
     let html = '';
 
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleQuimica: 'detalleQuimica'
+            detalleQuimica: 'detalleQuimica',
+            idcita: citaActual
+
         },
         success: function (response) {
             if (response.error) {
@@ -410,12 +422,14 @@ function listarQuimi() {
     });
 }
 function listarOrina() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleOrina: 'detalleOrina'
+            detalleOrina: 'detalleOrina',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -446,12 +460,14 @@ function listarOrina() {
     });
 }
 function listarOrinamisc() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleExamisc: 'detalleExamisc'
+            detalleExamisc: 'detalleExamisc',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -476,12 +492,14 @@ function listarOrinamisc() {
     });
 }
 function listarHeces() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleHeces: 'detalleHeces'
+            detalleHeces: 'detalleHeces',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -508,12 +526,14 @@ function listarHeces() {
     });
 }
 function listarHecesmisc() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleHecesmisc: 'detalleHecesmisc'
+            detalleHecesmisc: 'detalleHecesmisc',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -533,12 +553,14 @@ function listarHecesmisc() {
     });
 }
 function listarReticulocitos() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleReticulocitos: 'detalleReticulocitos'
+            detalleReticulocitos: 'detalleReticulocitos',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -558,12 +580,14 @@ function listarReticulocitos() {
     });
 }
 function listarTiempos() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleTiempos: 'detalleTiempos'
+            detalleTiempos: 'detalleTiempos',
+            idcita: citaActual
         },
         success: function (response) {
 
@@ -584,13 +608,15 @@ function listarTiempos() {
     });
 }
 function listarPrueba() {
+    const citaActual = getIdCita()
     let html = '';
 
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detallePruebaespecial: 'detallePruebaespecial'
+            detallePruebaespecial: 'detallePruebaespecial',
+            idcita: citaActual
         },
         success: function (response) {
             if (response.error) {
@@ -616,13 +642,15 @@ function listarPrueba() {
     });
 }
 function listarInmunoserologia() {
+    const citaActual = getIdCita()
     let html = '';
 
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleInmunoserologia: 'detalleInmunoserologia'
+            detalleInmunoserologia: 'detalleInmunoserologia',
+            idcita: citaActual
         },
         success: function (response) {
             if (response.error) {
@@ -647,12 +675,15 @@ function listarInmunoserologia() {
     });
 }
 function listarGrupo() {
+    const citaActual = getIdCita()
     let html = '';
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
         data: {
-            detalleGruposanguineo: 'detalleGruposanguineo'
+            detalleGruposanguineo: 'detalleGruposanguineo',
+            idcita: citaActual
+
         },
         success: function (response) {
 
@@ -1373,10 +1404,22 @@ function crearHema(e){
         type: 'POST',
         dataType: "json",
         data: {
+<<<<<<< HEAD
+            
+            idcita:e.target.idcita.value,
+<<<<<<< Updated upstream
+            hemoglobina:e.target.hemoglobina.value,
+            hematocritos:e.target.hematocritos.value,
+=======
      
             idcita:e.target.idcita.value,
             hemoglobina:e.target.hemoglobina.value || 0,
             hematocritos:e.target.hematocritos.value || 0,
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
+=======
+            hemoglobina:e.target.hemoglobina.value || 0,
+            hematocritos:e.target.hematocritos.value || 0,
+>>>>>>> Stashed changes
             cuentas_blancas:e.target.cuentas_blancas.value || 0,
             plaquetas:e.target.plaquetas.value || 0,
             vsg:e.target.vsg.value || 0,
@@ -1384,7 +1427,16 @@ function crearHema(e){
         },
         success: function (response) {
             if (response == 'registrado') {
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+               
+                $('#idcita').val('');
+=======
                 //$('#idcita').val('');
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
+=======
+                //$('#idcita').val('');
+>>>>>>> Stashed changes
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $("#cuentas_blancas").val('');
@@ -1399,13 +1451,75 @@ function crearHema(e){
                     timer: 2000
                 })
             } else {
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+                $('#idcita').val('');
+=======
                 //$('#idcita').val('');
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
+=======
+                //$('#idcita').val('');
+>>>>>>> Stashed changes
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $('#cuentas_blancas').val('')
                 $("#plaquetas").val('');
                 $("#vsg").focus();
                 listarHema();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: response,
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            }
+        }
+    });
+}
+function crearLeuco(e){
+    e.preventDefault();
+    $.ajax({
+        url: "ajax3.php",
+        type: 'POST',
+        dataType: "json",
+        data: {
+            idcita:e.target.idcita.value,
+            seg:e.target.seg.value,
+            linf:e.target.linf.value,
+            eosin:e.target.eosin.value,
+            monoc:e.target.monoc.value,
+            basof:e.target.basof.value,
+            otros:e.target.otros.value,
+            total:e.target.total.value,
+            crearLeuco:true
+        },
+        success: function (response) {
+            if (response == 'registrado') {
+                $('#seg').val('');
+                $('#linf').val('');
+                $("#eosin").val('');
+                $("#monoc").val('');
+                $("#basof").val('');
+                $("#otros").val('');
+                $("#total").val('');
+                listarLeuco();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Resultados Ingresados',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            } else {
+                $('#seg').val('');
+                $('#linf').val('');
+                $('#eosin').val('')
+                $("#monoc").val('');
+                $("#basof").focus();
+                $("#otros").val('');
+                $("#total").val('');
+                listarLeuco();
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
@@ -1424,6 +1538,7 @@ function crearQuimi(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             id:e.target.id.value,
             idcita: e.target.idcita.value,
             examen:e.target.examen.value,
@@ -1471,6 +1586,7 @@ function crearOrina(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             aspecto:e.target.aspecto.value,
             densidad:e.target.densidad.value,
             ph:e.target.ph.value,
@@ -1545,6 +1661,7 @@ function crearExamisc(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             celulas_ep_planas:e.target.celulas_ep_planas.value,
             bacterias:e.target.bacterias.value,
             leucocitos:e.target.leucocitos.value,
@@ -1601,6 +1718,7 @@ function crearHecesmisc(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             protozoarios:e.target.protozoarios.value,
             helmintos:e.target.helmintos.value,
             otros:e.target.otros.value,
@@ -1642,6 +1760,7 @@ function crearHeces(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             aspecto:e.target.aspecto.value,
             color:e.target.color.value,
             olor:e.target.olor.value,
@@ -1705,6 +1824,7 @@ function crearReticulocitos(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             reticulocitos:e.target.reticulocitos.value,
             valor_unidad:e.target.valor_unidad.value,
             valor_referencial:e.target.valor_referencial.value,
@@ -1792,6 +1912,7 @@ function crearPrueba(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             id:e.target.id.value,
             especial:e.target.especial.value,
             valor_unidad:e.target.valor_unidad.value,
@@ -1837,6 +1958,7 @@ function crearInmunoserologia(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             id:e.target.id.value,
             inmunoserologia:e.target.inmunoserologia.value,
             valor_unidad:e.target.valor_unidad.value,
@@ -1879,6 +2001,7 @@ function crearGruposanguineo(e){
         type: 'POST',
         dataType: "json",
         data: {
+            idcita:e.target.idcita.value,
             grupo:e.target.grupo.value,
             factor:e.target.factor.value,
             crearGruposanguineo:true

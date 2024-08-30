@@ -129,9 +129,10 @@ foreach ($query as $servicios) {
                 <form onsubmit="crearHema(event)">
                     <div class="card-body">
                         <div class="row">
-                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
+                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                             <div class="col-lg-4">
                                 <div class="form-group">
+                                <input type="hidden" id="idcliente" value="<?php echo $id_cliente; ?>" name="idcliente" required>
                                     <label for="hemoglobina">HEMOGLOBINA</label>
                                     <input id="hemoglobina" class="form-control" type="text" name="hemoglobina" placeholder="">
                                     <input id="id" type="hidden" name="id">
@@ -293,8 +294,7 @@ foreach ($query as $servicios) {
                     <form onsubmit="crearReticulocitos(event)">
                         <div class="card-body">
                             <div class="row">
-
-
+                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                 <div class="col-md-4">
                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                         <label>RETICULOCITOS</label>
@@ -353,6 +353,7 @@ foreach ($query as $servicios) {
                             <div class="card-body">
                                 <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                 <div class="row">
+                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                     <div class="col-md-4">
                                         <div class="form-group"> <input id="id" type="hidden" name="id">
                                             <label>TIEMPO DE PROTROMBINA:</label>
@@ -415,8 +416,7 @@ foreach ($query as $servicios) {
                             <form onsubmit="crearPrueba(event)">
                                 <div class="card-body">
                                     <div class="row">
-
-
+                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                         <div class="col-md-3">
                                             <div class="form-group"> <input id="id" type="hidden" name="id">
                                                 <label>EXAMEN</label>
@@ -482,8 +482,7 @@ foreach ($query as $servicios) {
                                 <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                     <div class="card-body">
                                         <div class="row">
-
-
+                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                             <div class="col-md-3">
                                                 <div class="form-group"> <input id="id" type="hidden" name="id">
                                                     <label>EXAMEN</label>
@@ -548,6 +547,7 @@ foreach ($query as $servicios) {
                                     <form onsubmit="crearOrina(event)">
                                         <div class="card-body">
                                             <div class="row">
+                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label for="aspecto">ASPECTO</label>
@@ -782,6 +782,7 @@ foreach ($query as $servicios) {
                                         <form onsubmit="crearExamisc(event)">
                                             <div class="card-body">
                                                 <div class="row">
+                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                     <div class="col-lg-3">
                                                         <div class="form-group">
                                                             <label for="celulas_ep_planas">CELULAS EP PLANAS</label>
@@ -884,6 +885,7 @@ foreach ($query as $servicios) {
                                             <form onsubmit="crearHeces(event)">
                                                 <div class="card-body">
                                                     <div class="row">
+                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                         <div class="col-lg-2">
                                                             <div class="form-group">
                                                                 <label for="aspecto">ASPECTO</label>
@@ -1036,10 +1038,10 @@ foreach ($query as $servicios) {
                                                 <form onsubmit="crearHecesmisc(event)">
                                                     <div class="card-body">
                                                         <div class="row">
-
-
+                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
+
                                                                     <label for="protozoarios">PROTOZOARIOS</label>
                                                                     <input id="protozoarios" class="form-control" type="text" name="protozoarios" value=" No se observó forma evolutiva parasitaria">
                                                                     <input id="id" type="hidden" name="id">
@@ -1093,8 +1095,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearInmunoserologia(event)">
                                                         <div class="card-body">
                                                             <div class="row">
-
-
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                         <label>EXAMEN</label>
@@ -1152,7 +1153,7 @@ foreach ($query as $servicios) {
                                                         <form onsubmit="crearHema(event)">
                                                             <div class="card-body">
                                                                 <div class="row">
-
+                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label for="hemoglobina">HEMOGLOBINA</label>
@@ -1222,6 +1223,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearLeuco(event)">
                                                         <div class="card-body">
                                                             <div class="row" style="text-align:center;">
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-md-2">
                                                                     <div class="form-group">
                                                                         <label for="seg">SEG</label>
@@ -1314,8 +1316,7 @@ foreach ($query as $servicios) {
                                                     <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                         <div class="card-body">
                                                             <div class="row">
-
-
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-md-3">
                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                         <label>EXAMEN</label>
@@ -1378,6 +1379,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearOrina(event)">
                                                         <div class="card-body">
                                                             <div class="row">
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-lg-2">
                                                                     <div class="form-group">
                                                                         <label for="aspecto">ASPECTO</label>
@@ -1615,6 +1617,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearExamisc(event)">
                                                         <div class="card-body">
                                                             <div class="row">
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <label for="celulas_ep_planas">CELULAS EP PLANAS</label>
@@ -1720,6 +1723,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearGruposanguineo(event)">
                                                         <div class="card-body">
                                                             <div class="row">
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <input id="id" type="hidden" name="id">
@@ -1767,7 +1771,7 @@ foreach ($query as $servicios) {
                                                     <form onsubmit="crearHema(event)">
                                                         <div class="card-body">
                                                             <div class="row">
-
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-lg-4">
                                                                     <div class="form-group">
                                                                         <label for="hemoglobina">HEMOGLOBINA</label>
@@ -1837,6 +1841,7 @@ foreach ($query as $servicios) {
                                                 <form onsubmit="crearLeuco(event)">
                                                     <div class="card-body">
                                                         <div class="row" style="text-align:center;">
+                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <label for="seg">SEG</label>
@@ -1927,6 +1932,7 @@ foreach ($query as $servicios) {
                                                     <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                         <div class="card-body">
                                                             <div class="row">
+                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                         <label>TIEMPO DE PROTROMBINA:</label>
@@ -1986,8 +1992,7 @@ foreach ($query as $servicios) {
                                                         <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                             <div class="card-body">
                                                                 <div class="row">
-
-
+                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                     <div class="col-md-3">
                                                                         <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                             <label>EXAMEN</label>
@@ -2048,8 +2053,7 @@ foreach ($query as $servicios) {
                                                             <form onsubmit="crearInmunoserologia(event)">
                                                                 <div class="card-body">
                                                                     <div class="row">
-
-
+                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                 <label>EXAMEN</label>
@@ -2109,6 +2113,7 @@ foreach ($query as $servicios) {
                                                                 <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                     <div class="card-body">
                                                                         <div class="row">
+                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                             <div class="col-md-3">
                                                                                 <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                     <label>EXAMEN</label>
@@ -2174,6 +2179,7 @@ foreach ($query as $servicios) {
                                                                     <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                         <div class="card-body">
                                                                             <div class="row">
+                                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                         <label>TIEMPO DE PROTROMBINA:</label>
@@ -2233,8 +2239,7 @@ foreach ($query as $servicios) {
                                                                         <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                             <div class="card-body">
                                                                                 <div class="row">
-
-
+                                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                     <div class="col-md-3">
                                                                                         <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                             <label>EXAMEN</label>
@@ -2300,7 +2305,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearHema(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row">
-
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-lg-4">
                                                                                             <div class="form-group">
                                                                                                 <label for="hemoglobina">HEMOGLOBINA</label>
@@ -2370,6 +2375,7 @@ foreach ($query as $servicios) {
                                                                         <form onsubmit="crearLeuco(event)">
                                                                             <div class="card-body">
                                                                                 <div class="row" style="text-align:center;">
+                                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                     <div class="col-md-2">
                                                                                         <div class="form-group">
                                                                                             <label for="seg">SEG</label>
@@ -2462,6 +2468,7 @@ foreach ($query as $servicios) {
                                                                             <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                             <div class="card-body">
                                                                                 <div class="row">
+                                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                     <div class="col-md-3">
                                                                                         <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                             <label>EXAMEN</label>
@@ -2524,6 +2531,7 @@ foreach ($query as $servicios) {
                                                                         <form onsubmit="crearOrina(event)">
                                                                             <div class="card-body">
                                                                                 <div class="row">
+                                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                     <div class="col-lg-2">
                                                                                         <div class="form-group">
                                                                                             <label for="aspecto">ASPECTO</label>
@@ -2761,6 +2769,7 @@ foreach ($query as $servicios) {
                                                                         <form onsubmit="crearExamisc(event)">
                                                                             <div class="card-body">
                                                                                 <div class="row">
+                                                                                <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                     <div class="col-lg-3">
                                                                                         <div class="form-group">
                                                                                             <label for="celulas_ep_planas">CELULAS EP PLANAS</label>
@@ -2860,6 +2869,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearHeces(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row">
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-lg-2">
                                                                                             <div class="form-group">
                                                                                                 <label for="aspecto">ASPECTO</label>
@@ -3012,8 +3022,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearHecesmisc(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-
-
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-lg-4">
                                                                                                 <div class="form-group">
                                                                                                     <label for="protozoarios">PROTOZOARIOS</label>
@@ -3071,7 +3080,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearHema(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-lg-4">
                                                                                                 <div class="form-group">
                                                                                                     <label for="hemoglobina">HEMOGLOBINA</label>
@@ -3141,6 +3150,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearLeuco(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row" style="text-align:center;">
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">                                                                  
                                                                                         <div class="col-md-2">
                                                                                             <div class="form-group">
                                                                                                 <label for="seg">SEG</label>
@@ -3234,8 +3244,7 @@ foreach ($query as $servicios) {
                                                                                 
                                                                             <div class="card-body">
                                                                                     <div class="row">
-
-
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-md-3">
                                                                                             <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                 <label>EXAMEN</label>
@@ -3298,6 +3307,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearOrina(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row">
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-lg-2">
                                                                                             <div class="form-group">
                                                                                                 <label for="aspecto">ASPECTO</label>
@@ -3535,6 +3545,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearExamisc(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row">
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-lg-3">
                                                                                             <div class="form-group">
                                                                                                 <label for="celulas_ep_planas">CELULAS EP PLANAS</label>
@@ -3634,9 +3645,8 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearInmunoserologia(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-
-
-                                                                                            <div class="col-md-4">
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
+                                                                                   <div class="col-md-4">
                                                                                                 <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                     <label>EXAMEN</label>
                                                                                                     <input id="inmunoserologia" class="form-control" type="text" name="inmunoserologia">
@@ -3694,7 +3704,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearHema(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-lg-4">
                                                                                                 <div class="form-group">
                                                                                                     <label for="hemoglobina">HEMOGLOBINA</label>
@@ -3764,6 +3774,7 @@ foreach ($query as $servicios) {
                                                                             <form onsubmit="crearLeuco(event)">
                                                                                 <div class="card-body">
                                                                                     <div class="row" style="text-align:center;">
+                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="col-md-2">
                                                                                             <div class="form-group">
                                                                                                 <label for="seg">SEG</label>
@@ -3853,6 +3864,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearGruposanguineo(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <input id="id" type="hidden" name="id">
@@ -3898,8 +3910,7 @@ foreach ($query as $servicios) {
 
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-
-
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-md-3">
                                                                                                 <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                     <label>EXAMEN</label>
@@ -3962,6 +3973,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearOrina(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-lg-2">
                                                                                                 <div class="form-group">
                                                                                                     <label for="aspecto">ASPECTO</label>
@@ -4199,6 +4211,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearExamisc(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-lg-3">
                                                                                                 <div class="form-group">
                                                                                                     <label for="celulas_ep_planas">CELULAS EP PLANAS</label>
@@ -4299,8 +4312,7 @@ foreach ($query as $servicios) {
                                                                                     <form onsubmit="crearInmunoserologia(event)">
                                                                                         <div class="card-body">
                                                                                             <div class="row">
-
-
+                                                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                 <div class="col-md-4">
                                                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                         <label>EXAMEN</label>
@@ -4359,7 +4371,7 @@ foreach ($query as $servicios) {
                                                                                     <form onsubmit="crearHema(event)">
                                                                                         <div class="card-body">
                                                                                             <div class="row">
-
+                                                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                 <div class="col-lg-4">
                                                                                                     <div class="form-group">
                                                                                                         <label for="hemoglobina">HEMOGLOBINA</label>
@@ -4429,6 +4441,7 @@ foreach ($query as $servicios) {
                                                                                 <form onsubmit="crearLeuco(event)">
                                                                                     <div class="card-body">
                                                                                         <div class="row" style="text-align:center;">
+                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                             <div class="col-md-2">
                                                                                                 <div class="form-group">
                                                                                                     <label for="seg">SEG</label>
@@ -4519,6 +4532,7 @@ foreach ($query as $servicios) {
                                                                                     <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                         <div class="card-body">
                                                                                             <div class="row">
+                                                                                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                 <div class="col-md-4">
                                                                                                     <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                         <label>TIEMPO DE PROTROMBINA:</label>
@@ -4640,6 +4654,7 @@ foreach ($query as $servicios) {
                                                                                             <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                 <div class="card-body">
                                                                                                     <div class="row">
+                                                                                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                         <div class="col-md-3">
                                                                                                             <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                                 <label>EXAMEN</label>
@@ -4698,8 +4713,7 @@ foreach ($query as $servicios) {
                                                                                                 <form onsubmit="crearInmunoserologia(event)">
                                                                                                     <div class="card-body">
                                                                                                         <div class="row">
-
-
+                                                                                                        <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                                                                                             <div class="col-md-4">
                                                                                                                 <div class="form-group"> <input id="id" type="hidden" name="id">
                                                                                                                     <label>EXAMEN</label>

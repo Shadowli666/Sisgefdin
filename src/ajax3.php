@@ -127,11 +127,12 @@ if (isset($_GET['q'])) {
     die();
 } else if (isset($_GET['detalleQuimica'])) {
     $id = $_SESSION['idUser'];
+    $idcita = $_GET['idcita'];
     $datos = array();
-    $detalle = mysqli_query($conexion, " SELECT d.id AS id_detalle, d.valor_unidad, d.valor_referencial1, d.valor_referencial2, q.examen 
+    $detalle = mysqli_query($conexion, " SELECT d.id AS id_detalle, d.idcita, d.valor_unidad, d.valor_referencial1, d.valor_referencial2, q.examen 
                                         FROM detalle_quimica d 
                                         INNER JOIN quimica q ON d.id_examen = q.id 
-                                        WHERE d.id_usuario = '$id'");
+                                        WHERE d.idcita = '$idcita'");
                                         
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id_detalle'];
@@ -145,8 +146,9 @@ if (isset($_GET['q'])) {
     die();
 } else if (isset($_GET['detalleOrina'])) {
     $id = $_SESSION['idUser'];
+    $idcita = $_GET['idcita'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_orina WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_orina WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['aspecto'] = $row['aspecto'];
@@ -168,9 +170,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleExamisc'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM orina_microscopio WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM orina_microscopio WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['celulas_ep_planas'] = $row['celulas_ep_planas'];
@@ -186,9 +189,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleHeces'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_heces WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_heces WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['aspecto'] = $row['aspecto'];
@@ -206,9 +210,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleHecesmisc'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_hecesmisc WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_hecesmisc WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['protozoarios'] = $row['protozoarios'];
@@ -219,9 +224,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleReticulocitos'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_reticulocitos WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_reticulocitos WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['reticulocitos'] = $row['reticulocitos'];
@@ -232,9 +238,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleTiempos'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_tiempos WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_tiempos WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['tp'] = $row['tp'];
@@ -246,12 +253,13 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detallePruebaespecial'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
     $detalle = mysqli_query($conexion, " SELECT d.id AS id_detalle, d.valor_unidad, d.valor_referencial, d.valor_referencial2, e.examen 
                                         FROM detalle_pruebaespecial d 
                                         INNER JOIN examenpruebaespecial e ON d.id_examen = e.id 
-                                        WHERE d.id_usuario = '$id'");
+                                        WHERE d.idcita = '$idcita'");
                                         
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id_detalle'];
@@ -264,12 +272,13 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleInmunoserologia'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
     $detalle = mysqli_query($conexion, " SELECT d.id AS id_detalle, d.valor_unidad, d.valor_referencial, e.examen 
                                         FROM detalle_inmunoserologia d 
                                         INNER JOIN exameninmunoserologia e ON d.id_examen = e.id 
-                                        WHERE d.id_usuario = '$id'");
+                                        WHERE d.idcita = '$idcita'");
                                         
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id_detalle'];
@@ -281,9 +290,10 @@ if (isset($_GET['q'])) {
     echo json_encode($datos);
     die();
 } else if (isset($_GET['detalleGruposanguineo'])) {
+    $idcita = $_GET['idcita'];
     $id = $_SESSION['idUser'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_gruposanguineo WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_gruposanguineo WHERE idcita = '$idcita'");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['gruposanguineo'] = $row['gruposanguineo'];
@@ -495,6 +505,7 @@ if (isset($_GET['q'])) {
         $basof = $row['basof'];
         $otros = $row['otros'];
         $total = $row['total'];
+        $idcita = $row['idcita'];
         $insertarLeuco = mysqli_query($conexion, "INSERT INTO formula_leuco(id_usuario, id_cliente, id_venta, seg, linf, eosin, monoc, basof, otros, total ) VALUES ('$id_usuario', '$id_cliente', $ultimoId, '$seg', '$linf', '$eosin', '$monoc', '$basof', '$otros', '$total')");
         if(!$insertarLeuco){
             echo mysqli_error($conexion);
@@ -510,7 +521,7 @@ if (isset($_GET['q'])) {
         
         
     }
-    $consultaDetalle_quimica = mysqli_query($conexion, "SELECT * FROM detalle_quimica WHERE id_usuario = $id_user");
+    $consultaDetalle_quimica = mysqli_query($conexion, "SELECT * FROM detalle_quimica WHERE idcita = $idcita");
     if (!$consultaDetalle_quimica){
         echo mysqli_error($conexion);
         return; 
@@ -521,20 +532,21 @@ if (isset($_GET['q'])) {
         $valor_unidad = $row['valor_unidad'];
         $devalor_referencial1 = $row['valor_referencial1'];
         $valor_referencial2 = $row['valor_referencial2'];
+        $idcita = $row['idcita'];
         $insertarQuimica = mysqli_query($conexion, "INSERT INTO resul_quimica(id_usuario, id_cliente, id_venta, id_examen, valor_unidad, valor_referencial1, valor_referencial2 ) VALUES ('$id_usuario', '$id_cliente', $ultimoId, $id_examen, '$valor_unidad', '$devalor_referencial1', '$valor_referencial2')");
         if(!$insertarQuimica){
             echo mysqli_error($conexion);
             return;
         }
         if ($insertarQuimica){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_quimica WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_quimica WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_orina = mysqli_query($conexion, "SELECT * FROM detalle_orina WHERE id_usuario = $id_user");
+    $consultaDetalle_orina = mysqli_query($conexion, "SELECT * FROM detalle_orina WHERE idcita = $idcita");
     if (!$consultaDetalle_orina){
         echo mysqli_error($conexion);
         return; 
@@ -555,20 +567,21 @@ if (isset($_GET['q'])) {
         $hemoglobina = $row['hemoglobina'];
         $pigmen_biliares = $row['pigmen_biliares'];
         $sales_biliares = $row['sales_biliares'];
+        $idcita = $row['idcita'];
         $insertarOrina = mysqli_query($conexion, "INSERT INTO orina(id_usuario, id_cliente, id_venta, aspecto, densidad, ph, olor, color, nitritos, proteinas, glucosa, cetonas, urobilinogeno, bilirrubina, hemoglobina, pigmen_biliares, sales_biliares ) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$aspecto', '$densidad', '$ph', '$olor', '$color', '$nitritos', '$proteinas', '$glucosa', '$cetonas', '$urobilinogeno','$bilirrubina' ,'$hemoglobina', '$pigmen_biliares', '$sales_biliares')");
         if(!$insertarOrina){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarOrina){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_orina WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_orina WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_misc = mysqli_query($conexion, "SELECT * FROM  orina_microscopio WHERE id_usuario = $id_user");
+    $consultaDetalle_misc = mysqli_query($conexion, "SELECT * FROM  orina_microscopio WHERE idcita = $idcita");
     if (!$consultaDetalle_misc){
         echo mysqli_error($conexion);
         return; 
@@ -583,13 +596,14 @@ if (isset($_GET['q'])) {
         $celulas_renales = $row['celulas_renales'];
         $cristales = $row['cristales'];
         $otros = $row['otros'];
+        $idcita = $row['idcita'];
         $insertarMisc = mysqli_query($conexion, "INSERT INTO detalle_exm_misc_ori(id_usuario, id_cliente, id_venta, celulas_ep_planas, bacterias, leucocitos, hematies, mucina, celulas_renales, cristales, otros) VALUES ('$id_usuario', '$id_cliente',$ultimoId, '$celulas_ep_planas', '$bacterias', '$leucocitos', '$hematies', '$mucina', '$celulas_renales', '$cristales', '$otros')");
         if(!$insertarMisc){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarMisc){
-            $eliminar = mysqli_query($conexion, "DELETE FROM orina_microscopio WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM orina_microscopio WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
@@ -598,7 +612,7 @@ if (isset($_GET['q'])) {
         
         
     }
-    $consultaDetalle_heces = mysqli_query($conexion, "SELECT * FROM detalle_heces WHERE id_usuario = $id_user");
+    $consultaDetalle_heces = mysqli_query($conexion, "SELECT * FROM detalle_heces WHERE idcita = $idcita");
     if (!$consultaDetalle_heces){
         echo mysqli_error($conexion);
         return; 
@@ -615,20 +629,21 @@ if (isset($_GET['q'])) {
         $ra = $row['ra'];
         $ph = floatval($row['ph']);
         $azucares = $row['azucares'];
+        $idcita = $row['idcita'];
         $insertarHeces = mysqli_query($conexion, "INSERT INTO heces(id_usuario, id_cliente, id_venta, aspecto, color, olor, consistencia, reaccion, moco, sangre, ra, ph, azucares) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$aspecto', '$color', '$olor', '$consistencia', '$reaccion', '$moco', '$sangre', '$ra', '$ph', '$azucares')");
         if(!$insertarHeces){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarHeces){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_heces WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_heces WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_hecesmisc = mysqli_query($conexion, "SELECT * FROM detalle_hecesmisc WHERE id_usuario = $id_user");
+    $consultaDetalle_hecesmisc = mysqli_query($conexion, "SELECT * FROM detalle_hecesmisc WHERE idcita = $idcita");
     if (!$consultaDetalle_hecesmisc){
         echo mysqli_error($conexion);
         return; 
@@ -638,20 +653,21 @@ if (isset($_GET['q'])) {
         $protozoarios = $row['protozoarios'];
         $helmintos = $row['helmintos'];
         $otros = $row['otros'];
+        $idcita = $row['idcita'];
         $insertarHecesmisc = mysqli_query($conexion, "INSERT INTO heces_misc(id_usuario, id_cliente, id_venta, protozoarios, helmintos, otros) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$protozoarios', '$helmintos', '$otros')");
         if(!$insertarHecesmisc){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarHecesmisc){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_hecesmisc WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_hecesmisc WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_reticulocitos = mysqli_query($conexion, "SELECT * FROM detalle_reticulocitos WHERE id_usuario = $id_user");
+    $consultaDetalle_reticulocitos = mysqli_query($conexion, "SELECT * FROM detalle_reticulocitos WHERE idcita = $idcita");
     if (!$consultaDetalle_reticulocitos){
         echo mysqli_error($conexion);
         return; 
@@ -661,20 +677,21 @@ if (isset($_GET['q'])) {
         $reticulocitos = $row['reticulocitos'];
         $valor_unidad = $row['valor_unidad'];
         $valor_referencial = $row['valor_referencial'];
+        $idcita = $row['idcita'];
         $insertarReticulocitos = mysqli_query($conexion, "INSERT INTO reticulocitos(id_usuario, id_cliente, id_venta, reticulocitos, valor_unidad, valor_referencial) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$reticulocitos', '$valor_unidad', '$valor_referencial')");
         if(!$insertarReticulocitos){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarReticulocitos){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_reticulocitos WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_reticulocitos WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_tiempos = mysqli_query($conexion, "SELECT * FROM detalle_tiempos WHERE id_usuario = $id_user");
+    $consultaDetalle_tiempos = mysqli_query($conexion, "SELECT * FROM detalle_tiempos WHERE idcita = $idcita");
     if (!$consultaDetalle_tiempos){
         echo mysqli_error($conexion);
         return; 
@@ -685,13 +702,14 @@ if (isset($_GET['q'])) {
         $tpt = $row['tpt'];
         $inr = $row['inr'];
         $fibrinogeno = $row['fibrinogeno'];
+        $idcita = $row['idcita'];
         $insertarTiempos = mysqli_query($conexion, "INSERT INTO tiempos(id_usuario, id_cliente, id_venta, tp, tpt, inr,fibrinogeno) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$tp', '$tpt', '$inr', '$fibrinogeno')");
     if(!$insertarTiempos){
             echo mysqli_error($conexion);
             return;
         }
         if ($insertarTiempos){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_tiempos WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_tiempos WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
@@ -699,7 +717,7 @@ if (isset($_GET['q'])) {
         }
         
     }
-    $consultaDetalle_prueba = mysqli_query($conexion, "SELECT * FROM detalle_pruebaespecial WHERE id_usuario = $id_user");
+    $consultaDetalle_prueba = mysqli_query($conexion, "SELECT * FROM detalle_pruebaespecial WHERE idcita = $idcita");
     if (!$consultaDetalle_prueba){
         echo mysqli_error($conexion);
         return; 
@@ -710,20 +728,21 @@ if (isset($_GET['q'])) {
         $valor_unidad = $row['valor_unidad'];
         $devalor_referencial = $row['valor_referencial'];
         $valor_referencial2 = $row['valor_referencial2'];
+        $idcita = $row['idcita'];
         $insertarPrueba = mysqli_query($conexion, "INSERT INTO pruebaespecial(id_usuario, id_cliente, id_venta, id_examen, valor_unidad, valor_referencial, valor_referencial2 ) VALUES ('$id_usuario', '$id_cliente', $ultimoId, $id_examen, '$valor_unidad', '$devalor_referencial', '$valor_referencial2')");
         if(!$insertarPrueba){
             echo mysqli_error($conexion);
             return;
         }
         if ($insertarPrueba){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_pruebaespecial WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_pruebaespecial WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_inmunoserologia = mysqli_query($conexion, "SELECT * FROM detalle_inmunoserologia WHERE id_usuario = $id_user");
+    $consultaDetalle_inmunoserologia = mysqli_query($conexion, "SELECT * FROM detalle_inmunoserologia WHERE idcita = $idcita");
     if (!$consultaDetalle_inmunoserologia){
         echo mysqli_error($conexion);
         return; 
@@ -733,20 +752,21 @@ if (isset($_GET['q'])) {
         $id_examen = $row['id_examen'];
         $valor_unidad = $row['valor_unidad'];
         $devalor_referencial = $row['valor_referencial'];
+        $idcita = $row['idcita'];
         $insertarInmunoserologia = mysqli_query($conexion, "INSERT INTO inmunoserologia(id_usuario, id_cliente, id_venta, id_examen, valor_unidad, valor_referencial ) VALUES ('$id_usuario', '$id_cliente', $ultimoId, $id_examen, '$valor_unidad', '$devalor_referencial')");
         if(!$insertarInmunoserologia){
             echo mysqli_error($conexion);
             return;
         }
         if ($insertarInmunoserologia){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_inmunoserologia WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_inmunoserologia WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
             return;
         }
     }
-    $consultaDetalle_gruposanguineo = mysqli_query($conexion, "SELECT * FROM detalle_gruposanguineo WHERE id_usuario = $id_user");
+    $consultaDetalle_gruposanguineo = mysqli_query($conexion, "SELECT * FROM detalle_gruposanguineo WHERE idcita = $idcita");
     if (!$consultaDetalle_gruposanguineo){
         echo mysqli_error($conexion);
         return; 
@@ -755,13 +775,14 @@ if (isset($_GET['q'])) {
         $id_usuario = $row['id_usuario'];
         $gruposanguineo = $row['gruposanguineo'];
         $factor = $row['factor'];
+        $idcita = $row['idcita'];
         $insertarGruposanguineo = mysqli_query($conexion, "INSERT INTO gruposanguineo(id_usuario, id_cliente, id_venta, gruposanguineo, factor) VALUES ('$id_usuario', '$id_cliente',  $ultimoId, '$gruposanguineo', '$factor')");
         if(!$insertarGruposanguineo){
             echo mysqli_error($conexion);
             return;  
         }
         if ($insertarGruposanguineo){
-            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_gruposanguineo WHERE id_usuario = $id_user");
+            $eliminar = mysqli_query($conexion, "DELETE FROM detalle_gruposanguineo WHERE idcita = $idcita");
         }
         else{
             echo mysqli_error($conexion);
@@ -933,6 +954,7 @@ if (isset($_POST['regDetalle'])) {
     echo json_encode($msg);
     die();
 } else if(isset($_POST['crearOrina'])){
+        $idcita = $_POST['idcita'];
         $aspecto = $_POST['aspecto'];
         $densidad = $_POST['densidad'];
         $ph = $_POST['ph'];
@@ -948,7 +970,7 @@ if (isset($_POST['regDetalle'])) {
         $pigmen_biliares = $_POST['pigmen_biliares'];
         $sales_biliares = $_POST['sales_biliares'];
         $id_user = $_SESSION['idUser'];
-    $query = mysqli_query($conexion, "INSERT INTO detalle_orina(id_usuario, aspecto, densidad, ph, olor,color, nitritos, proteinas, glucosa, cetonas, urobilinogeno, bilirrubina, hemoglobina, pigmen_biliares, sales_biliares) VALUES ($id_user,  '$aspecto', '$densidad','$ph','$olor','$color', '$nitritos','$proteinas', '$glucosa', '$cetonas', '$urobilinogeno', '$bilirrubina', '$hemoglobina', '$pigmen_biliares', '$sales_biliares')"); 
+    $query = mysqli_query($conexion, "INSERT INTO detalle_orina(id_usuario, aspecto, densidad, ph, olor,color, nitritos, proteinas, glucosa, cetonas, urobilinogeno, bilirrubina, hemoglobina, pigmen_biliares, sales_biliares, idcita) VALUES ($id_user,  '$aspecto', '$densidad','$ph','$olor','$color', '$nitritos','$proteinas', '$glucosa', '$cetonas', '$urobilinogeno', '$bilirrubina', '$hemoglobina', '$pigmen_biliares', '$sales_biliares', $idcita)"); 
         if ($query) {
             $msg = "registrado";
         } else {
@@ -958,6 +980,7 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearExamisc'])){
+        $idcita = $_POST['idcita'];
         $celulas_ep_planas = $_POST['celulas_ep_planas'];
         $bacterias = $_POST['bacterias'];
         $leucocitos = $_POST['leucocitos'];
@@ -967,7 +990,7 @@ if (isset($_POST['regDetalle'])) {
         $cristales = $_POST['cristales'];
         $otros = $_POST['otros'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO orina_microscopio(id_usuario, celulas_ep_planas, bacterias, leucocitos, hematies, mucina, celulas_renales, cristales, otros) VALUES ($id_user,  '$celulas_ep_planas', '$bacterias','$leucocitos', '$hematies', '$mucina', '$celulas_renales', '$cristales', '$otros')");
+        $query = mysqli_query($conexion, "INSERT INTO orina_microscopio(id_usuario, celulas_ep_planas, bacterias, leucocitos, hematies, mucina, celulas_renales, cristales, otros, idcita) VALUES ($id_user,  '$celulas_ep_planas', '$bacterias','$leucocitos', '$hematies', '$mucina', '$celulas_renales', '$cristales', '$otros', $idcita)");
         if ($query) {
             $msg = "registrado";
         } else {
@@ -977,6 +1000,7 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearHeces'])){
+        $idcita = $_POST['idcita'];
         $aspecto = $_POST['aspecto'];
         $color = $_POST['color'];
         $olor = $_POST['olor'];
@@ -988,7 +1012,7 @@ if (isset($_POST['regDetalle'])) {
         $ph = $_POST['ph'];
         $azucares = $_POST['azucares'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_heces(id_usuario, aspecto, color, olor, consistencia, reaccion, moco, sangre, ra, ph, azucares) VALUES ($id_user,  '$aspecto', '$color','$olor', '$consistencia', '$reaccion', '$moco', '$sangre', '$ra', '$ph', '$azucares')");
+        $query = mysqli_query($conexion, "INSERT INTO detalle_heces(id_usuario, aspecto, color, olor, consistencia, reaccion, moco, sangre, ra, ph, azucares, idcita) VALUES ($id_user,  '$aspecto', '$color','$olor', '$consistencia', '$reaccion', '$moco', '$sangre', '$ra', '$ph', '$azucares', $idcita)");
          
         if ($query) {
             $msg = "registrado";
@@ -999,11 +1023,12 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearHecesmisc'])){
+        $idcita = $_POST['idcita'];
         $protozoarios = $_POST['protozoarios'];
         $helmintos = $_POST['helmintos'];
         $otros = $_POST['otros'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_hecesmisc(id_usuario, protozoarios, helmintos, otros) VALUES ($id_user,  '$protozoarios', '$helmintos', '$otros')");
+        $query = mysqli_query($conexion, "INSERT INTO detalle_hecesmisc(id_usuario, protozoarios, helmintos, otros, idcita) VALUES ($id_user,  '$protozoarios', '$helmintos', '$otros', $idcita)");
          
         if ($query) {
             $msg = "registrado";
@@ -1014,11 +1039,12 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearReticulocitos'])){
+        $idcita = $_POST['idcita'];
         $reticulocitos = $_POST['reticulocitos'];
         $valor_unidad = $_POST['valor_unidad'];
         $valor_referencial = $_POST['valor_referencial'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_reticulocitos(id_usuario, reticulocitos, valor_unidad, valor_referencial) VALUES ($id_user,  '$reticulocitos', '$valor_unidad', '$valor_referencial')");
+        $query = mysqli_query($conexion, "INSERT INTO detalle_reticulocitos(id_usuario, reticulocitos, valor_unidad, valor_referencial, idcita) VALUES ($id_user,  '$reticulocitos', '$valor_unidad', '$valor_referencial', $idcita)");
          
         if ($query) {
             $msg = "registrado";
@@ -1029,13 +1055,14 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearTiempos'])){
+        $idcita = $_POST['idcita'];
         $tp = $_POST['tp'];
         $tpt = $_POST['tpt'];
         $inr = $_POST['inr'];
         $fibrinogeno = $_POST['fibrinogeno'];
         $idcita = $_POST['idcita'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_tiempos(id_usuario, tp, tpt, inr, fibrinogeno,idcita) VALUES ($id_user,  '$tp', '$tpt', '$inr', '$fibrinogeno','$idcita')");
+        $query = mysqli_query($conexion, "INSERT INTO detalle_tiempos(id_usuario, tp, tpt, inr, fibrinogeno, idcita) VALUES ($id_user,  '$tp', '$tpt', '$inr', '$fibrinogeno', '$idcita')");
         if ($query) {
             $msg = "registrado";
         } else {
@@ -1045,6 +1072,7 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearPrueba'])){
+        $idcita = $_POST['idcita'];
         $id = $_POST['id'];
         $examen = $_POST['especial'];
         $valor_unidad = $_POST['valor_unidad'];
@@ -1081,7 +1109,7 @@ if (isset($_POST['regDetalle'])) {
             }
         } else {
             // Insert new record
-            $query = mysqli_query($conexion, "INSERT INTO detalle_pruebaespecial (id_usuario, id_examen, valor_unidad, valor_referencial, valor_referencial2) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial', '$valor_referencial2')"); 
+            $query = mysqli_query($conexion, "INSERT INTO detalle_pruebaespecial (id_usuario, id_examen, valor_unidad, valor_referencial, valor_referencial2, idcita) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial', '$valor_referencial2', $idcita)"); 
             if ($query) {
                 $msg = "registrado";
             } else {
@@ -1091,6 +1119,7 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearInmunoserologia'])){
+        $idcita = $_POST['idcita'];
         $id = $_POST['id'];
         $examen = $_POST['inmunoserologia'];
         $valor_unidad = $_POST['valor_unidad'];
@@ -1126,7 +1155,7 @@ if (isset($_POST['regDetalle'])) {
             }
         } else {
             // Insert new record
-            $query = mysqli_query($conexion, "INSERT INTO detalle_inmunoserologia (id_usuario, id_examen, valor_unidad, valor_referencial) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial')"); 
+            $query = mysqli_query($conexion, "INSERT INTO detalle_inmunoserologia (id_usuario, id_examen, valor_unidad, valor_referencial, idcita) VALUES ('$id_user', '$id_examen', '$valor_unidad', '$valor_referencial', $idcita)"); 
             if ($query) {
                 $msg = "registrado";
             } else {
@@ -1136,10 +1165,11 @@ if (isset($_POST['regDetalle'])) {
         echo json_encode($msg);
         die();
     } else if(isset($_POST['crearGruposanguineo'])){
+        $idcita = $_POST['idcita'];
         $grupo = $_POST['grupo'];
         $factor = $_POST['factor'];
         $id_user = $_SESSION['idUser'];
-        $query = mysqli_query($conexion, "INSERT INTO detalle_gruposanguineo(id_usuario, gruposanguineo, factor) VALUES ($id_user,  '$grupo', '$factor')");
+        $query = mysqli_query($conexion, "INSERT INTO detalle_gruposanguineo(id_usuario, gruposanguineo, factor, idcita) VALUES ($id_user,  '$grupo', '$factor', $idcita)");
          
         if ($query) {
             $msg = "registrado";

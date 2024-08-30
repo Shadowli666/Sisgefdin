@@ -68,7 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#btn_generar').click(function (e) {
         e.preventDefault();
         var rows = $('#tblDetalle tr').length;
+<<<<<<< HEAD
+        
+=======
         const idcita = getIdCita()
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
         if (rows > 2) {
             var action = 'procesarVenta';
             var id = $('#idcliente').val();
@@ -77,8 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 async: true,
                 data: {
                     procesarVenta: action,
+<<<<<<< HEAD
+                    id: id
+=======
                     id: id,
                     idcita: idcita
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
                 },
                 success: function (response) {
                     
@@ -208,9 +216,12 @@ function listar() {
         });
     }
     
+<<<<<<< HEAD
+=======
     /**
      * Funcion para obtener el id de una cita   
      */
+>>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
     function getIdCita(){
         // Crear una instancia de URLSearchParams con los parámetros de la URL actual
         const urlParams = new URLSearchParams(window.location.search);
