@@ -2,7 +2,7 @@
 
 //fetch.php
 
-$connect = new PDO("mysql:host=localhost;dbname=farmacia", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=farmacia", "farmacia_test", "");
 
 $column = array('doctor', 'COUNT(*)');
 

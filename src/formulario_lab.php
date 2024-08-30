@@ -129,9 +129,10 @@ foreach ($query as $servicios) {
                 <form onsubmit="crearHema(event)">
                     <div class="card-body">
                         <div class="row">
-
+                            <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                             <div class="col-lg-4">
                                 <div class="form-group">
+                                <input type="hidden" id="idcliente" value="<?php echo $id_cliente; ?>" name="idcliente" required>
                                     <label for="hemoglobina">HEMOGLOBINA</label>
                                     <input id="hemoglobina" class="form-control" type="text" name="hemoglobina" placeholder="">
                                     <input id="id" type="hidden" name="id">
@@ -201,6 +202,7 @@ foreach ($query as $servicios) {
                         <div class="row" style="text-align:center;">
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <input type="hidden" name="idcita" id="idcita" value="<?php echo $idcita;?>">
                                     <label for="seg">SEG</label>
                                     <input id="seg" class="form-control amt" type="text" name="seg">
 

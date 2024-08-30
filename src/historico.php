@@ -88,7 +88,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $conexion = mysqli_connect("localhost", "root", "1234", "farmacia");
+                            $conexion = mysqli_connect("localhost", "farmacia_test", "1234", "farmacia");
 
                             if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
                                 $from_date = $_GET['from_date'];

@@ -1,4 +1,4 @@
-<?php
+    <?php
 require_once '../../conexion.php';
 require_once 'fpdf/fpdf.php';
 $pdf = new FPDF('P', 'mm', 'letter');
@@ -7,11 +7,21 @@ $pdf->SetMargins(5, 0, 0);
 $pdf->SetTitle("Salida");
 $pdf->SetFont('Arial', 'B', 12);
 
-// Verificar si se reciben los parámetros 'v' y 'cl' en la URL
-$id = $_GET['v'];
-$idcliente = $_GET['cl'];
+/// Verificar si se reciben los parámetros 'v' y 'cl' en la URL
+//v es para el id de examenes
+$id = isset($_GET['v']) ? intval($_GET['v']) : 0;
+//cl es para el cliente
+$idcliente = isset($_GET['cl']) ? intval($_GET['cl']) : 0;
+//fecha en formato AAAA-MM-DD
+$fecha = date('Y-m-d');
 $config = mysqli_query($conexion, "SELECT * FROM configuracion");
 $datos = mysqli_fetch_assoc($config);
+
+// Si no se reciben los parámetros necesarios, mostrar un error
+if ($id == 0 || $idcliente == 0) {
+    die("Error: Parámetros inválidos.");
+}
+
 
 $clientes = mysqli_query($conexion, "SELECT * FROM cliente WHERE idcliente = $idcliente");
 
@@ -20,6 +30,8 @@ if ($clientes) {
 } else {
     die("Error en la consulta de cliente: " . mysqli_error($conexion));
 }
+$sql = "SELECT * FROM examenes WHERE id = $id";
+$result = $conexion->query($sql);
 
 $pdf->Cell(190, 10, utf8_decode('LABORATORIO FUNDACION DIVINO NIÑO'), 0, 1, 'C', 0);
 $pdf->image("../../assets/img/laboratorio.png", 10, 10, 30, 20, 'PNG');
@@ -32,6 +44,11 @@ $pdf->SetFont('Arial', '', 7);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(153, 152, 150);
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(170,5,utf8_decode("Fecha:"),0,0,'R');
+while($row = $result->fetch_assoc()) {
+    $pdf->Cell(40, 5, $row['fecha'], 0, 1, 'L');
+}
 $pdf->SetTextColor(255, 255, 255 );
 $pdf->Cell(205, 5, "DATOS DEL PACIENTE", 0, 1, 'C', 1);
 $pdf->SetTextColor(0, 0, 0);
@@ -414,7 +431,9 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
     $columnCount++;
 }
 }
-
+$pdf->Ln(50);
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(190, 10, utf8_decode('BIOANALISTA'), 0, 1, 'C', 0);
 
 
 

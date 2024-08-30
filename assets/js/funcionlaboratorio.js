@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#dir_cliente").val(ui.item.direccion);
         }
     })
+   
     $("#producto").autocomplete({
         minLength: 3,
         source: function (request, response) {
@@ -307,6 +308,7 @@ function listarHema() {
     $.ajax({
         url: "ajax3.php",
         dataType: "json",
+        type: 'POST',
         data: {
             detalleHema: 'detalleHema'
         },
@@ -314,7 +316,8 @@ function listarHema() {
 
             response.forEach(row => {
                 html += `<tr>
-                <td>${row['id']}</td>
+                <td>${row['id']}</td>  
+                <td>${row['id_cliente']}</td>  
                 <td>${row['hemoglobina']}</td>
                 <td>${row['hematocritos']}</td>
                 <td>${row['cuentas_blancas']}</td>
@@ -342,6 +345,7 @@ function listarLeuco() {
             response.forEach(row => {
                 html += `<tr>
                 <td>${row['id']}</td>
+                <td>${row['id_usuario']}</td>
                 <td>${row['seg']}</td>
                 <td>${row['linf']}</td>
                 <td>${row['eosin']}</td>
@@ -1352,6 +1356,8 @@ function crearHema(e){
         type: 'POST',
         dataType: "json",
         data: {
+            
+            idcita:e.target.idcita.value,
             hemoglobina:e.target.hemoglobina.value,
             hematocritos:e.target.hematocritos.value,
             cuentas_blancas:e.target.cuentas_blancas.value || 0,
@@ -1361,6 +1367,8 @@ function crearHema(e){
         },
         success: function (response) {
             if (response == 'registrado') {
+               
+                $('#idcita').val('');
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $("#cuentas_blancas").val('');
@@ -1375,6 +1383,7 @@ function crearHema(e){
                     timer: 2000
                 })
             } else {
+                $('#idcita').val('');
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $('#cuentas_blancas').val('')
@@ -1882,5 +1891,20 @@ function crearGruposanguineo(e){
         }
     });
 }
+function obtenerDetalleHema() {
+    var idCliente = $('#idcliente').val(); // Obtener el valor del campo idcliente
 
-
+    $.ajax({
+        url: 'ajax3.php?detalleHema=true', // Asegúrate de que esta ruta es correcta
+        type: 'POST',
+        data: { idcliente: idCliente }, // Envía el idcliente en la solicitud POST
+        success: function(response) {
+            var datos = JSON.parse(response);
+            console.log(datos);
+            // Procesa los datos recibidos
+        },
+        error: function(xhr, status, error) {
+            console.error("Error en la solicitud AJAX: " + error);
+        }
+    });
+}

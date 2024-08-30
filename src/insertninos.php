@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost","root","");
+$connection = mysqli_connect("localhost","farmacia_test","");
 $db = mysqli_select_db($connection, 'farmacia');
 
 if(isset($_POST['insertdata']))

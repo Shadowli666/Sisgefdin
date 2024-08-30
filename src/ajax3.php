@@ -85,10 +85,17 @@ if (isset($_GET['q'])) {
     }
     echo json_encode($datos);
     die();
+
+    /**
+     * Funcion para Mostrar datos de Hematologia ya almacenados previamente
+     * TODO:
+     * Debug para mostrar los datos.
+     */
 } else if (isset($_GET['detalleHema'])) {
     $id = $_SESSION['idUser'];
+    $idcita = $_GET['idcita'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_hematologia WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_hematologia WHERE idcita = $idcita");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['hemoglobina'] = $row['hemoglobina'];
@@ -102,8 +109,9 @@ if (isset($_GET['q'])) {
     die();
 } else if (isset($_GET['detalleLeuco'])) {
     $id = $_SESSION['idUser'];
+    $idcita = $_GET['idcita'];
     $datos = array();
-    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_leuco WHERE id_usuario = '$id'");
+    $detalle = mysqli_query($conexion, "SELECT * FROM detalle_leuco WHERE idcita = $idcita");
     while ($row = mysqli_fetch_assoc($detalle)) {
         $data['id'] = $row['id'];
         $data['seg'] = $row['seg'];
@@ -847,7 +855,8 @@ if (isset($_POST['regDetalle'])) {
     $plaquetas = $_POST['plaquetas'];
     $vsg = $_POST['vsg'];
     $id_user = $_SESSION['idUser'];
-    $query = mysqli_query($conexion, "INSERT INTO detalle_hematologia(id_usuario, hemoglobina, hematocritos, cuentas_blancas, plaquetas, vsg) VALUES ($id_user, '$hemoglobina', '$hematocritos',$cuentas_blancas, $plaquetas, '$vsg')");
+    $idcita = $_POST['idcita'];
+    $query = mysqli_query($conexion, "INSERT INTO detalle_hematologia(id_usuario,  hemoglobina, hematocritos, cuentas_blancas, plaquetas, vsg, idcita) VALUES ($id_user, $hemoglobina, $hematocritos,$cuentas_blancas, $plaquetas, $vsg, $idcita)");
     if ($query) {
         $msg = "registrado";
     } else {
@@ -858,6 +867,7 @@ if (isset($_POST['regDetalle'])) {
     die();
 } else if(isset($_POST['crearLeuco'])){
     $seg = $_POST['seg'];
+    $idcita = $_POST['idcita'];
     $linf = $_POST['linf'];
     $eosin = $_POST['eosin'];
     $monoc = $_POST['monoc'];
@@ -865,7 +875,7 @@ if (isset($_POST['regDetalle'])) {
     $otros = $_POST['otros'];
     $total = $_POST['total'];
     $id_user = $_SESSION['idUser'];
-    $query = mysqli_query($conexion, "INSERT INTO detalle_leuco(id_usuario, seg, linf, eosin, monoc, basof, otros, total) VALUES ($id_user, '$seg', '$linf','$eosin', '$monoc', '$basof', '$otros', '$total')"); 
+    $query = mysqli_query($conexion, "INSERT INTO detalle_leuco(id_usuario, seg, linf, eosin, monoc, basof, otros, total, idcita) VALUES ($id_user, '$seg', '$linf','$eosin', '$monoc', '$basof', '$otros', '$total', '$idcita')"); 
     if ($query) {
         $msg = "registrado";
     } else {
