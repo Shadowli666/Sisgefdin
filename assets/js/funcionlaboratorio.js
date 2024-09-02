@@ -139,22 +139,14 @@ document.addEventListener("DOMContentLoaded", function () {
             var action = 'procesarVenta';
             var id = $('#idcliente').val();
             const idcita = getIdCita()
-<<<<<<< Updated upstream
-=======
             
->>>>>>> Stashed changes
             $.ajax({
                 url: 'ajax3.php',
                 async: true,
                 data: {
                     procesarVenta: action,
-<<<<<<< Updated upstream
-                    idcita: idcita,
-                    id: id
-=======
                     id: id,
                     idcita: idcita
->>>>>>> Stashed changes
                 },
                 success: function (response) {
                     console.log(response);
@@ -1391,7 +1383,6 @@ function editarProducto(id) {
         }
     });
 }
-
 function limpiar() {
     $('#formulario')[0].reset();
     $('#id').val('');
@@ -1404,39 +1395,16 @@ function crearHema(e){
         type: 'POST',
         dataType: "json",
         data: {
-<<<<<<< HEAD
-            
-            idcita:e.target.idcita.value,
-<<<<<<< Updated upstream
-            hemoglobina:e.target.hemoglobina.value,
-            hematocritos:e.target.hematocritos.value,
-=======
-     
-            idcita:e.target.idcita.value,
-            hemoglobina:e.target.hemoglobina.value || 0,
-            hematocritos:e.target.hematocritos.value || 0,
->>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
-=======
-            hemoglobina:e.target.hemoglobina.value || 0,
-            hematocritos:e.target.hematocritos.value || 0,
->>>>>>> Stashed changes
-            cuentas_blancas:e.target.cuentas_blancas.value || 0,
-            plaquetas:e.target.plaquetas.value || 0,
-            vsg:e.target.vsg.value || 0,
-            crearHema:true
-        },
+            idcita: e.target.idcita.value,
+            hemoglobina: e.target.hemoglobina.value || 0,
+            hematocritos: e.target.hematocritos.value || 0,
+            cuentas_blancas: e.target.cuentas_blancas.value || 0,
+            plaquetas: e.target.plaquetas.value || 0,
+            vsg: e.target.vsg.value || 0,
+            crearHema: true
+        },        
         success: function (response) {
             if (response == 'registrado') {
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-               
-                $('#idcita').val('');
-=======
-                //$('#idcita').val('');
->>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
-=======
-                //$('#idcita').val('');
->>>>>>> Stashed changes
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $("#cuentas_blancas").val('');
@@ -1451,15 +1419,6 @@ function crearHema(e){
                     timer: 2000
                 })
             } else {
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-                $('#idcita').val('');
-=======
-                //$('#idcita').val('');
->>>>>>> 85bafbf6a2a03b97a7311823d2bfc8e65bfb0c98
-=======
-                //$('#idcita').val('');
->>>>>>> Stashed changes
                 $('#hemoglobina').val('');
                 $('#hematocritos').val('');
                 $('#cuentas_blancas').val('')
